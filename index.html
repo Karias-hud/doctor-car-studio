@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Doctors Car Studio | Clínica Estética Automotriz</title>
+  <title>The Doctors Car Studio | Clínica Estética Automotriz & Clásicos</title>
+  <meta name="description" content="Restauramos salud, estética y valor a su vehículo con precisión médica. Especialistas en detailing de alta gama, corrección de pintura y preservación de autos clásicos." />
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <script>
@@ -17,15 +19,17 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
             display: ['Space Grotesk', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'serif'],
           },
           colors: {
-            clinical: {
-              dark: '#07090d',
-              panel: '#0f131a',
-              border: '#1e2633',
+            studio: {
+              bg: '#05070a',
+              surface: '#0b0f17',
+              card: '#101622',
+              border: '#1d2738',
               cyan: '#00d2ff',
-              teal: '#00f5d4',
-              muted: '#8b9bb4'
+              champagne: '#d4af37',
+              muted: '#8c9bb3'
             }
           }
         }
@@ -35,291 +39,536 @@
 
   <style>
     body {
-      background-color: #07090d;
+      background-color: #05070a;
       color: #f8fafc;
+      overflow-x: hidden;
     }
-    .grid-bg {
-      background-image: linear-gradient(to right, rgba(0, 210, 255, 0.04) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0, 210, 255, 0.04) 1px, transparent 1px);
-      background-size: 40px 40px;
+    .blueprint-grid {
+      background-size: 48px 48px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 210, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 210, 255, 0.03) 1px, transparent 1px);
     }
-    .glow-cyan {
-      box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
+    .glass-panel {
+      background: rgba(16, 22, 34, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .glow-accent {
+      box-shadow: 0 0 35px rgba(0, 210, 255, 0.14);
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .ba-slider-handle {
+      touch-action: none;
     }
   </style>
 </head>
-<body class="antialiased selection:bg-clinical-cyan selection:text-black">
+<body class="antialiased selection:bg-studio-cyan selection:text-black">
 
-  <!-- CONFIGURACIÓN DEL CLIENTE -->
+  <!-- =====================================================================
+       CONFIGURACIÓN CENTRAL DEL CLIENTE (EDITAR AQUÍ)
+  ====================================================================== -->
   <script>
     const CLIENT_CONFIG = {
       businessName: "The Doctors Car Studio",
-      whatsappNumber: "50600000000", // Cambiar por el número real de WhatsApp (ej. 50688888888)
+      whatsappNumber: "50600000000", // Colocar el WhatsApp real con código de país (ej. 50688888888)
       instagramHandle: "thedoctorscarstudio",
       instagramUrl: "https://www.instagram.com/thedoctorscarstudio/",
-      // Pega aquí la URL JSON gratuita de Behold.so cuando el cliente autorice su cuenta:
+      locationText: "Atención Exclusiva con Cita Previa",
+      // Pega aquí el enlace JSON de Behold.so cuando el cliente vincule su cuenta:
       beholdFeedUrl: "" 
     };
   </script>
 
   <!-- NAVBAR -->
-  <header class="fixed top-0 w-full z-50 bg-clinical-dark/85 backdrop-blur-md border-b border-clinical-border">
+  <header class="fixed top-0 w-full z-50 bg-studio-bg/80 backdrop-blur-xl border-b border-white/[0.06]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg bg-clinical-cyan/10 border border-clinical-cyan/40 flex items-center justify-center text-clinical-cyan">
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-studio-cyan/20 to-transparent border border-studio-cyan/40 flex items-center justify-center text-studio-cyan group-hover:border-studio-cyan transition">
           <i class="fa-solid fa-heart-pulse text-lg"></i>
+          <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-studio-cyan animate-ping opacity-75"></span>
+          <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-studio-cyan"></span>
         </div>
         <div>
-          <span class="font-display font-bold text-lg tracking-wider uppercase block leading-none">The Doctors</span>
-          <span class="text-[11px] tracking-[0.25em] text-clinical-cyan uppercase font-medium">Car Studio</span>
+          <span class="font-display font-bold text-lg tracking-[0.12em] uppercase block leading-none text-white">The Doctors</span>
+          <span class="text-[10px] tracking-[0.32em] text-studio-cyan uppercase font-semibold mt-1 block">Car Studio</span>
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm text-clinical-muted font-medium">
-        <a href="#protocolos" class="hover:text-white transition">Protocolos Clínicos</a>
-        <a href="#casos" class="hover:text-white transition">Casos Clínicos</a>
-        <a href="#diagnostico" class="hover:text-white transition">Diagnóstico</a>
+      <nav class="hidden lg:flex items-center gap-9 text-xs uppercase tracking-[0.15em] text-studio-muted font-medium">
+        <a href="#filosofia" class="hover:text-white transition">Filosofía</a>
+        <a href="#protocolos" class="hover:text-white transition">Protocolos</a>
+        <a href="#comparador" class="hover:text-white transition">Precisión</a>
+        <a href="#casos" class="hover:text-white transition">Portafolio IG</a>
+        <a href="#diagnostico" class="hover:text-white transition">Admisión</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer" 
-           aria-label="Instagram de The Doctors Car Studio"
-           class="w-10 h-10 rounded-lg bg-clinical-panel border border-clinical-border hover:border-clinical-cyan text-clinical-cyan flex items-center justify-center transition">
+        <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer"
+           aria-label="Instagram oficial"
+           class="w-10 h-10 rounded-xl bg-studio-card border border-studio-border hover:border-studio-cyan text-slate-300 hover:text-studio-cyan flex items-center justify-center transition">
           <i class="fa-brands fa-instagram text-lg"></i>
         </a>
-        <a href="#diagnostico" class="bg-clinical-cyan hover:bg-sky-300 text-black font-semibold text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
-          <span>Agendar Cita</span>
-          <i class="fa-solid fa-arrow-right text-xs"></i>
+        <a href="#diagnostico" 
+           class="bg-studio-cyan hover:bg-sky-300 text-black font-display font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-studio-cyan/10">
+          <span>Agendar Diagnóstico</span>
+          <i class="fa-solid fa-arrow-right text-[11px]"></i>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 grid-bg overflow-hidden border-b border-clinical-border">
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-clinical-cyan/10 blur-[120px] rounded-full pointer-events-none"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-clinical-panel border border-clinical-border text-xs font-medium text-clinical-cyan mb-6">
-        <span class="w-2 h-2 rounded-full bg-clinical-teal animate-pulse"></span>
-        CLÍNICA ESTÉTICA AUTOMOTRIZ DE ALTA PRECISIÓN
+  <!-- HERO CINEMATOGRÁFICO (MERCEDES DE CARRERAS) -->
+  <section class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden border-b border-white/[0.06]">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=2000&q=85" 
+           alt="Mercedes-Benz de carreras en estudio" 
+           class="w-full h-full object-cover object-center opacity-35 scale-105" />
+      <div class="absolute inset-0 bg-gradient-to-r from-studio-bg via-studio-bg/90 to-studio-bg/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-studio-bg via-transparent to-studio-bg/60"></div>
+      <div class="absolute inset-0 blueprint-grid"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel border border-studio-cyan/30 text-[11px] font-mono uppercase tracking-[0.2em] text-studio-cyan mb-8">
+          <span class="w-2 h-2 rounded-full bg-studio-cyan animate-pulse"></span>
+          Clínica Estética Automotriz &bull; Clásicos y Competición
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.06] text-white">
+          Restauramos <span class="font-serif italic font-semibold text-studio-cyan text-5xl sm:text-7xl">salud, estética y valor</span> a su vehículo con precisión médica.
+        </h1>
+
+        <p class="mt-7 text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed font-light">
+          Especialistas en diagnóstico microscópico de superficies, corrección de pintura de época y blindaje molecular. Tratamos cada clásico, deportivo y vehículo de colección como una pieza irrepetible de ingeniería.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a href="#diagnostico" 
+             class="px-8 py-4 rounded-xl bg-studio-cyan hover:bg-sky-300 text-black font-display font-bold text-xs uppercase tracking-[0.15em] transition glow-accent flex items-center justify-center gap-3">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            Solicitar Evaluación Clínica
+          </a>
+          <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer"
+             class="px-8 py-4 rounded-xl glass-panel hover:bg-white/10 border border-white/15 hover:border-studio-cyan/50 text-white font-display font-semibold text-xs uppercase tracking-[0.15em] transition flex items-center justify-center gap-3">
+            <i class="fa-brands fa-instagram text-lg text-studio-cyan"></i>
+            Ver Archivo en Instagram
+          </a>
+        </div>
       </div>
 
-      <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl mx-auto leading-[1.1]">
-        Restauramos <span class="text-transparent bg-clip-text bg-gradient-to-r from-clinical-cyan to-clinical-teal">salud, estética y valor</span> a su vehículo con precisión médica.
-      </h1>
+      <!-- Barra de Indicadores Técnicos -->
+      <div class="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div>
+          <span class="text-[11px] font-mono text-studio-cyan uppercase tracking-widest block">01 / Diagnóstico</span>
+          <p class="font-display font-semibold text-white text-base mt-1">Medición Digital de Micras</p>
+          <p class="text-xs text-studio-muted mt-0.5">Preservación segura de lacas originales.</p>
+        </div>
+        <div>
+          <span class="text-[11px] font-mono text-studio-cyan uppercase tracking-widest block">02 / Óptica</span>
+          <p class="font-display font-semibold text-white text-base mt-1">Iluminación Espectro CRI 98+</p>
+          <p class="text-xs text-studio-muted mt-0.5">Detección quirúrgica de defectos.</p>
+        </div>
+        <div>
+          <span class="text-[11px] font-mono text-studio-cyan uppercase tracking-widest block">03 / Especialidad</span>
+          <p class="font-display font-semibold text-white text-base mt-1">Clásicos & Motorsport</p>
+          <p class="text-xs text-studio-muted mt-0.5">Química neutra y pulido de cromo.</p>
+        </div>
+        <div>
+          <span class="text-[11px] font-mono text-studio-cyan uppercase tracking-widest block">04 / Protección</span>
+          <p class="font-display font-semibold text-white text-base mt-1">Blindaje Cerámico & PPF</p>
+          <p class="text-xs text-studio-muted mt-0.5">Valorización estética a largo plazo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <p class="mt-6 text-clinical-muted text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-        Diagnóstico avanzado de superficies, corrección microscópica de pintura y blindaje cerámico bajo estándares clínicos de laboratorio.
-      </p>
+  <!-- FILOSOFÍA CLÍNICA -->
+  <section id="filosofia" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-6 relative">
+        <div class="rounded-3xl overflow-hidden border border-studio-border relative aspect-[4/3]">
+          <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1000&q=85" 
+               alt="Detalle de clásico restaurado" 
+               class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-studio-bg/90 via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 glass-panel border border-white/10 rounded-2xl p-4 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] font-mono text-studio-cyan uppercase tracking-widest">Estándar de Laboratorio</span>
+              <p class="font-display font-bold text-sm text-white">Cero agresividad sobre pintura de época</p>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-studio-cyan/15 text-studio-cyan flex items-center justify-center shrink-0">
+              <i class="fa-solid fa-award"></i>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#diagnostico" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-clinical-cyan hover:bg-sky-300 text-black font-bold text-sm tracking-wide transition glow-cyan flex items-center justify-center gap-2">
-          <i class="fa-brands fa-whatsapp text-lg"></i>
-          SOLICITAR DIAGNÓSTICO CLÍNICO
-        </a>
-        <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer" 
-           class="w-full sm:w-auto px-8 py-4 rounded-xl bg-clinical-panel hover:bg-slate-800 border border-clinical-border hover:border-clinical-cyan/50 text-white font-semibold text-sm tracking-wide transition flex items-center justify-center gap-2">
-          <i class="fa-brands fa-instagram text-lg text-clinical-cyan"></i>
-          @THEDOCTORSCARSTUDIO
-        </a>
+      <div class="lg:col-span-6 space-y-6">
+        <span class="text-xs font-mono uppercase tracking-[0.25em] text-studio-cyan">// Metodología The Doctors</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold leading-tight">
+          No hacemos lavados convencionales. Ejecutamos <span class="font-serif italic text-studio-cyan font-normal text-4xl sm:text-5xl">intervenciones de precisión.</span>
+        </h2>
+        <p class="text-studio-muted text-sm sm:text-base leading-relaxed">
+          Un vehículo clásico o de competición pierde valor cada vez que es sometido a técnicas abrasivas sin control. En <strong class="text-white font-medium">The Doctors Car Studio</strong> analizamos el historial y espesor de cada panel antes de intervenir.
+        </p>
+
+        <div class="space-y-4 pt-2">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg bg-studio-cyan/10 border border-studio-cyan/30 text-studio-cyan flex items-center justify-center shrink-0 mt-0.5 text-xs font-mono">01</div>
+            <div>
+              <h3 class="font-display font-semibold text-white text-base">Historial Clínico del Vehículo</h3>
+              <p class="text-xs text-studio-muted mt-1 leading-relaxed">Inspección completa de pintura, molduras cromadas, empaques y tapicería original para definir el plan seguro.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg bg-studio-cyan/10 border border-studio-cyan/30 text-studio-cyan flex items-center justify-center shrink-0 mt-0.5 text-xs font-mono">02</div>
+            <div>
+              <h3 class="font-display font-semibold text-white text-base">Corrección Óptica Controlada</h3>
+              <p class="text-xs text-studio-muted mt-1 leading-relaxed">Eliminación de oxidación, marcas de lavado y velo opaco respetando el barniz de fábrica.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg bg-studio-cyan/10 border border-studio-cyan/30 text-studio-cyan flex items-center justify-center shrink-0 mt-0.5 text-xs font-mono">03</div>
+            <div>
+              <h3 class="font-display font-semibold text-white text-base">Sellado & Conservación Patrimonial</h3>
+              <p class="text-xs text-studio-muted mt-1 leading-relaxed">Blindaje contra humedad, rayos UV y contaminantes ambientales para mantener su valor de exhibición.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PROTOCOLOS CLÍNICOS (SERVICIOS) -->
-  <section id="protocolos" class="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
-      <div>
-        <span class="text-xs font-mono uppercase tracking-widest text-clinical-cyan">// Especialidades</span>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold mt-2">Protocolos de Intervención</h2>
+  <section id="protocolos" class="py-24 bg-studio-surface border-y border-white/[0.06] reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-16">
+        <span class="text-xs font-mono uppercase tracking-[0.25em] text-studio-cyan">// Protocolos Especializados</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2">Tratamientos Clínicos</h2>
+        <p class="text-studio-muted text-sm sm:text-base mt-3">
+          Soluciones diseñadas a medida según la edad, tipo de pintura y nivel de conservación de cada automóvil.
+        </p>
       </div>
-      <p class="text-clinical-muted text-sm max-w-md">
-        Cada vehículo pasa por una evaluación previa con medición de micras e iluminación de espectro completo antes de cualquier procedimiento.
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-studio-card border border-studio-border hover:border-studio-cyan/50 rounded-3xl p-8 transition duration-300 group relative overflow-hidden">
+          <div class="flex items-center justify-between mb-6">
+            <div class="w-12 h-12 rounded-2xl bg-studio-cyan/10 border border-studio-cyan/30 text-studio-cyan flex items-center justify-center group-hover:scale-110 transition">
+              <i class="fa-solid fa-microscope text-xl"></i>
+            </div>
+            <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 01</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white mb-3">Cirugía & Corrección de Pintura</h3>
+          <p class="text-sm text-studio-muted leading-relaxed mb-6">
+            Restauración multietapa de profundidad y reflejo. Eliminamos micro-rayones (swirls), hologramas y oxidación en pinturas monocapa o bicapa con precisión milimétrica.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-cyan"></i> Descontaminación química y mecánica segura</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-cyan"></i> Pulido de piezas cromadas y ópticas</li>
+          </ul>
+        </div>
+
+        <div class="bg-studio-card border border-studio-border hover:border-studio-cyan/50 rounded-3xl p-8 transition duration-300 group relative overflow-hidden">
+          <div class="flex items-center justify-between mb-6">
+            <div class="w-12 h-12 rounded-2xl bg-studio-cyan/10 border border-studio-cyan/30 text-studio-cyan flex items-center justify-center group-hover:scale-110 transition">
+              <i class="fa-solid fa-shield-halved text-xl"></i>
+            </div>
+            <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 02</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white mb-3">Blindaje Cerámico Molecular</h3>
+          <p class="text-sm text-studio-muted leading-relaxed mb-6">
+            Recubrimiento de grado profesional que crea una barrera cristalina de alta dureza, intensificando el brillo húmedo y repeliendo agua, polvo y lluvia ácida.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-cyan"></i> Protección UV para evitar decoloración</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-cyan"></i> Tratamiento específico para aros y mordazas</li>
+          </ul>
+        </div>
+
+        <div class="bg-studio-card border border-studio-border hover:border-studio-cyan/50 rounded-3xl p-8 transition duration-300 group relative overflow-hidden">
+          <div class="flex items-center justify-between mb-6">
+            <div class="w-12 h-12 rounded-2xl bg-studio-cyan/10 border border-studio-cyan/30 text-studio-cyan flex items-center justify-center group-hover:scale-110 transition">
+              <i class="fa-solid fa-layer-group text-xl"></i>
+            </div>
+            <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 03</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white mb-3">PPF (Paint Protection Film)</h3>
+          <p class="text-sm text-studio-muted leading-relaxed mb-6">
+            Escudo invisible de poliuretano autorregenerativo con calor. Absorbe impactos de gravilla, insectos y roces sin comprometer la originalidad de la carrocería.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-cyan"></i> Cortes de precisión por panel sin cuchillas sobre pintura</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-cyan"></i> Acabado brillo cristal o satinado stealth</li>
+          </ul>
+        </div>
+
+        <div class="bg-studio-card border border-studio-border hover:border-studio-cyan/50 rounded-3xl p-8 transition duration-300 group relative overflow-hidden">
+          <div class="flex items-center justify-between mb-6">
+            <div class="w-12 h-12 rounded-2xl bg-studio-cyan/10 border border-studio-cyan/30 text-studio-cyan flex items-center justify-center group-hover:scale-110 transition">
+              <i class="fa-solid fa-spray-can-sparkles text-xl"></i>
+            </div>
+            <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 04</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-white mb-3">Restauración & Sanitización de Cabina</h3>
+          <p class="text-sm text-studio-muted leading-relaxed mb-6">
+            Limpieza clínica con vapor seco e hidratación profunda de cueros naturales, maderas y textiles delicados para devolver la flexibilidad y aroma de fábrica.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-cyan"></i> Nutrición mate no grasosa para cuero de época</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-cyan"></i> Desinfección antibacteriana de ductos y cabina</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARADOR INTERACTIVO ANTES / DESPUÉS -->
+  <section id="comparador" class="py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs font-mono uppercase tracking-[0.25em] text-studio-cyan">// Evidencia Visual</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold mt-2">Diagnóstico vs. Resultado Clínico</h2>
+      <p class="text-studio-muted text-sm mt-2">
+        Desliza el control central para comparar una superficie fatigada por el tiempo frente a una restauración de profundidad óptica.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Protocolo 1 -->
-      <div class="bg-clinical-panel border border-clinical-border hover:border-clinical-cyan/50 rounded-2xl p-6 transition group">
-        <div class="w-12 h-12 rounded-xl bg-clinical-cyan/10 text-clinical-cyan flex items-center justify-center mb-5 group-hover:scale-110 transition">
-          <i class="fa-solid fa-microscope text-xl"></i>
-        </div>
-        <span class="text-[11px] font-mono text-clinical-muted">PROTOCOLO 01</span>
-        <h3 class="font-display text-xl font-bold mt-1 mb-3">Cirugía de Pintura</h3>
-        <p class="text-sm text-clinical-muted leading-relaxed">
-          Corrección multietapa para eliminar hologramas, micro-rayones (swirls) y oxidación, devolviendo la claridad óptica de fábrica.
-        </p>
+    <div id="ba-container" class="relative w-full aspect-[16/9] max-h-[540px] rounded-3xl overflow-hidden border border-studio-border select-none glow-accent">
+      <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1400&q=90" 
+           alt="Después de restauración clínica" 
+           class="absolute inset-0 w-full h-full object-cover" />
+      <span class="absolute top-5 right-5 z-10 bg-studio-bg/85 backdrop-blur-md border border-studio-cyan/40 text-studio-cyan text-[11px] font-mono uppercase tracking-wider px-3.5 py-1.5 rounded-full">
+        Post-Intervención (Brillo 99%)
+      </span>
+
+      <div id="ba-before-wrapper" class="absolute inset-0 overflow-hidden" style="width: 50%;">
+        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1400&q=90" 
+             alt="Antes de intervención" 
+             class="absolute inset-0 w-full h-full object-cover max-w-none filter grayscale-[55%] contrast-75 brightness-75 blur-[0.6px]" 
+             id="ba-before-img" />
+        <span class="absolute top-5 left-5 z-10 bg-black/80 backdrop-blur-md border border-white/15 text-slate-300 text-[11px] font-mono uppercase tracking-wider px-3.5 py-1.5 rounded-full">
+          Pre-Diagnóstico (Oxidación / Velo)
+        </span>
       </div>
 
-      <!-- Protocolo 2 -->
-      <div class="bg-clinical-panel border border-clinical-border hover:border-clinical-cyan/50 rounded-2xl p-6 transition group">
-        <div class="w-12 h-12 rounded-xl bg-clinical-cyan/10 text-clinical-cyan flex items-center justify-center mb-5 group-hover:scale-110 transition">
-          <i class="fa-solid fa-shield-halved text-xl"></i>
+      <div id="ba-handle" class="ba-slider-handle absolute top-0 bottom-0 z-20 w-1 bg-studio-cyan cursor-ew-resize" style="left: 50%;">
+        <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-studio-bg border-2 border-studio-cyan text-studio-cyan flex items-center justify-center shadow-xl">
+          <i class="fa-solid fa-arrows-left-right text-xs"></i>
         </div>
-        <span class="text-[11px] font-mono text-clinical-muted">PROTOCOLO 02</span>
-        <h3 class="font-display text-xl font-bold mt-1 mb-3">Blindaje Cerámico</h3>
-        <p class="text-sm text-clinical-muted leading-relaxed">
-          Protección molecular de grado 9H/10H contra rayos UV, lluvia ácida y contaminantes con efecto hidrofóbico extremo.
-        </p>
-      </div>
-
-      <!-- Protocolo 3 -->
-      <div class="bg-clinical-panel border border-clinical-border hover:border-clinical-cyan/50 rounded-2xl p-6 transition group">
-        <div class="w-12 h-12 rounded-xl bg-clinical-cyan/10 text-clinical-cyan flex items-center justify-center mb-5 group-hover:scale-110 transition">
-          <i class="fa-solid fa-layer-group text-xl"></i>
-        </div>
-        <span class="text-[11px] font-mono text-clinical-muted">PROTOCOLO 03</span>
-        <h3 class="font-display text-xl font-bold mt-1 mb-3">PPF Autorregenerativo</h3>
-        <p class="text-sm text-clinical-muted leading-relaxed">
-          Película transparente de poliuretano termoplástico que absorbe impactos de piedras y roces sin dañar la laca original.
-        </p>
-      </div>
-
-      <!-- Protocolo 4 -->
-      <div class="bg-clinical-panel border border-clinical-border hover:border-clinical-cyan/50 rounded-2xl p-6 transition group">
-        <div class="w-12 h-12 rounded-xl bg-clinical-cyan/10 text-clinical-cyan flex items-center justify-center mb-5 group-hover:scale-110 transition">
-          <i class="fa-solid fa-spray-can-sparkles text-xl"></i>
-        </div>
-        <span class="text-[11px] font-mono text-clinical-muted">PROTOCOLO 04</span>
-        <h3 class="font-display text-xl font-bold mt-1 mb-3">Sanitización Clínica</h3>
-        <p class="text-sm text-clinical-muted leading-relaxed">
-          Desinfección profunda con vapor seco, nutrición de cueros naturales y eliminación de bacterias y olores en cabina.
-        </p>
       </div>
     </div>
   </section>
 
-  <!-- FEED DE INSTAGRAM EN VIVO (CASOS CLÍNICOS) -->
-  <section id="casos" class="py-20 bg-clinical-panel/50 border-y border-clinical-border">
+  <!-- PORTAFOLIO SINCRONIZADO CON INSTAGRAM (@thedoctorscarstudio) -->
+  <section id="casos" class="py-24 bg-studio-surface border-y border-white/[0.06] reveal">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
         <div>
-          <div class="inline-flex items-center gap-2 text-xs font-mono text-clinical-cyan uppercase tracking-wider">
-            <i class="fa-brands fa-instagram"></i> Portafolio Oficial
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-studio-cyan uppercase tracking-[0.2em]">
+            <i class="fa-brands fa-instagram"></i> Archivo Digital En Vivo
           </div>
-          <h2 class="font-display text-3xl sm:text-4xl font-bold mt-1">Casos Clínicos Recientes</h2>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2">Casos Clínicos Recientes</h2>
         </div>
 
-        <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-clinical-dark border border-clinical-border hover:border-clinical-cyan text-sm font-medium transition group">
-          <i class="fa-brands fa-instagram text-clinical-cyan text-base"></i>
+        <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-studio-card border border-studio-border hover:border-studio-cyan text-xs font-display font-semibold uppercase tracking-wider text-white transition group self-start md:self-auto">
+          <i class="fa-brands fa-instagram text-studio-cyan text-base"></i>
           <span>@thedoctorscarstudio</span>
-          <i class="fa-solid fa-arrow-up-right-from-square text-xs text-clinical-muted group-hover:text-clinical-cyan transition"></i>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[11px] text-studio-muted group-hover:text-studio-cyan transition"></i>
         </a>
       </div>
 
-      <!-- Contenedor dinámico donde se cargan las fotos/reels de Instagram -->
-      <div id="instagram-feed-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Se llena automáticamente por JavaScript -->
+      <!-- Grid dinámico donde se cargan las fotos/reels de Instagram -->
+      <div id="instagram-feed-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        <!-- Renderizado automático vía JavaScript -->
       </div>
 
-      <!-- Banner inferior de invitación directa al perfil -->
-      <div class="mt-10 bg-clinical-dark border border-clinical-border rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-4 text-center sm:text-left">
-          <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 p-[2px] shrink-0 mx-auto sm:mx-0">
-            <div class="w-full h-full bg-clinical-dark rounded-full flex items-center justify-center text-white">
-              <i class="fa-brands fa-instagram text-xl"></i>
+      <div class="mt-12 glass-panel border border-studio-border rounded-3xl p-7 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-5 text-center sm:text-left">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 p-[2px] shrink-0 mx-auto sm:mx-0">
+            <div class="w-full h-full bg-studio-bg rounded-[14px] flex items-center justify-center text-white">
+              <i class="fa-brands fa-instagram text-2xl"></i>
             </div>
           </div>
           <div>
-            <p class="font-display font-bold text-white">Sigue nuestros procedimientos diarios en Instagram</p>
-            <p class="text-xs text-clinical-muted mt-0.5">Reels de antes y después, entregas de vehículos y tips de cuidado automotriz.</p>
+            <p class="font-display font-bold text-lg text-white">Explora más restauraciones en nuestro Instagram oficial</p>
+            <p class="text-xs sm:text-sm text-studio-muted mt-1">Documentamos el paso a paso de cada clásico, procesos de corrección y entregas en estudio.</p>
           </div>
         </div>
         <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer"
-           class="shrink-0 px-6 py-2.5 rounded-xl bg-white/5 hover:bg-clinical-cyan hover:text-black border border-white/10 text-white text-xs font-bold tracking-wider uppercase transition">
-          Abrir Perfil Oficial
+           class="shrink-0 px-7 py-3.5 rounded-xl bg-white text-black hover:bg-studio-cyan font-display font-bold text-xs uppercase tracking-wider transition">
+          Visitar @thedoctorscarstudio
         </a>
       </div>
     </div>
   </section>
 
-  <!-- DIAGNÓSTICO Y CONTACTO WHATSAPP -->
-  <section id="diagnostico" class="py-20 lg:py-28 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-clinical-panel border border-clinical-border rounded-3xl p-8 sm:p-12 glow-cyan">
-      <div class="text-center mb-8">
-        <span class="text-xs font-mono uppercase tracking-widest text-clinical-cyan">// Admisión de Vehículo</span>
-        <h2 class="font-display text-3xl font-bold mt-2">Solicitar Diagnóstico Estético</h2>
-        <p class="text-clinical-muted text-sm mt-2">
-          Completa los datos de tu vehículo y envía tu ficha directamente a nuestro equipo por WhatsApp.
+  <!-- FORMULARIO DE ADMISIÓN / DIAGNÓSTICO WHATSAPP -->
+  <section id="diagnostico" class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <div class="bg-studio-card border border-studio-border rounded-[2rem] p-8 sm:p-14 glow-accent relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-72 h-72 bg-studio-cyan/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-mono uppercase tracking-[0.25em] text-studio-cyan">// Ficha de Admisión</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold mt-2">Agendar Diagnóstico Clínico</h2>
+        <p class="text-studio-muted text-sm mt-3">
+          Completa el registro de tu vehículo. Nuestro equipo recibirá tu ficha técnica directamente por WhatsApp para coordinar tu cita.
         </p>
       </div>
 
-      <form id="whatsapp-form" class="space-y-5">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <form id="whatsapp-form" class="space-y-6 relative z-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
-            <label class="block text-xs font-medium text-clinical-muted uppercase tracking-wider mb-2">Tu Nombre</label>
-            <input type="text" id="clientName" required placeholder="Ej. Carlos Méndez"
-              class="w-full bg-clinical-dark border border-clinical-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-clinical-cyan transition" />
+            <label class="block text-[11px] font-mono text-studio-muted uppercase tracking-widest mb-2.5">Nombre del Propietario</label>
+            <input type="text" id="clientName" required placeholder="Ej. Roberto Solís"
+              class="w-full bg-studio-bg border border-studio-border rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-studio-cyan transition" />
           </div>
           <div>
-            <label class="block text-xs font-medium text-clinical-muted uppercase tracking-wider mb-2">Vehículo (Marca, Modelo y Año)</label>
-            <input type="text" id="carModel" required placeholder="Ej. Porsche Macan 2023"
-              class="w-full bg-clinical-dark border border-clinical-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-clinical-cyan transition" />
+            <label class="block text-[11px] font-mono text-studio-muted uppercase tracking-widest mb-2.5">Marca, Modelo y Año</label>
+            <input type="text" id="carModel" required placeholder="Ej. Mercedes-Benz 280SL 1971"
+              class="w-full bg-studio-bg border border-studio-border rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-studio-cyan transition" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-[11px] font-mono text-studio-muted uppercase tracking-widest mb-2.5">Categoría del Vehículo</label>
+            <select id="carCategory"
+              class="w-full bg-studio-bg border border-studio-border rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-studio-cyan transition">
+              <option value="Auto Clásico / Colección">Auto Clásico / Colección</option>
+              <option value="Deportivo / Alta Gama">Deportivo / Alta Gama</option>
+              <option value="SUV / Uso Ejecutivo">SUV / Uso Ejecutivo</option>
+              <option value="Vehículo Recién Adquirido">Vehículo Recién Adquirido</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] font-mono text-studio-muted uppercase tracking-widest mb-2.5">Protocolo Requerido</label>
+            <select id="serviceType"
+              class="w-full bg-studio-bg border border-studio-border rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-studio-cyan transition">
+              <option value="Diagnóstico Integral de Pintura y Cabina">Diagnóstico Integral de Pintura y Cabina</option>
+              <option value="Cirugía / Corrección de Pintura">Cirugía / Corrección de Pintura</option>
+              <option value="Blindaje Cerámico Molecular">Blindaje Cerámico Molecular</option>
+              <option value="PPF (Paint Protection Film)">PPF (Paint Protection Film)</option>
+              <option value="Restauración y Sanitización Interior">Restauración y Sanitización Interior</option>
+            </select>
           </div>
         </div>
 
         <div>
-          <label class="block text-xs font-medium text-clinical-muted uppercase tracking-wider mb-2">Tratamiento de Interés</label>
-          <select id="serviceType"
-            class="w-full bg-clinical-dark border border-clinical-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-clinical-cyan transition">
-            <option value="Diagnóstico General / Evaluación">Diagnóstico General / Evaluación</option>
-            <option value="Cirugía / Corrección de Pintura">Cirugía / Corrección de Pintura</option>
-            <option value="Blindaje Cerámico (Ceramic Coating)">Blindaje Cerámico (Ceramic Coating)</option>
-            <option value="PPF (Paint Protection Film)">PPF (Paint Protection Film)</option>
-            <option value="Sanitización y Detailing Interior">Sanitización y Detailing Interior</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs font-medium text-clinical-muted uppercase tracking-wider mb-2">Notas adicionales (opcional)</label>
-          <textarea id="notes" rows="3" placeholder="Cuéntanos si tiene rayones, pintura opaca o si es vehículo nuevo..."
-            class="w-full bg-clinical-dark border border-clinical-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-clinical-cyan transition"></textarea>
+          <label class="block text-[11px] font-mono text-studio-muted uppercase tracking-widest mb-2.5">Observaciones Clínicas (Opcional)</label>
+          <textarea id="notes" rows="3" placeholder="Indícanos si tiene pintura original de época, zonas opacas, rayones o si deseas prepararlo para exhibición..."
+            class="w-full bg-studio-bg border border-studio-border rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-studio-cyan transition"></textarea>
         </div>
 
         <button type="submit"
-          class="w-full py-4 rounded-xl bg-clinical-cyan hover:bg-sky-300 text-black font-bold text-sm tracking-wide transition flex items-center justify-center gap-2 cursor-pointer">
-          <i class="fa-brands fa-whatsapp text-lg"></i>
-          ENVIAR FICHA DE DIAGNÓSTICO POR WHATSAPP
+          class="w-full py-4 rounded-xl bg-studio-cyan hover:bg-sky-300 text-black font-display font-bold text-xs uppercase tracking-[0.18em] transition flex items-center justify-center gap-3 cursor-pointer shadow-lg shadow-studio-cyan/15">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          Enviar Ficha Clínica por WhatsApp
         </button>
       </form>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="border-t border-clinical-border py-10 text-center text-xs text-clinical-muted">
-    <p class="font-display font-bold text-white text-sm tracking-wider uppercase">The Doctors Car Studio</p>
-    <p class="mt-1">Restauramos salud, estética y valor a su vehículo con precisión médica.</p>
-    <div class="mt-4 flex justify-center gap-4">
-      <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer" class="hover:text-clinical-cyan transition">
-        <i class="fa-brands fa-instagram mr-1"></i> @thedoctorscarstudio
-      </a>
+  <footer class="border-t border-white/[0.06] bg-studio-bg py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <div class="flex items-center justify-center md:justify-start gap-2.5">
+          <i class="fa-solid fa-heart-pulse text-studio-cyan"></i>
+          <span class="font-display font-bold text-white text-base tracking-[0.15em] uppercase">The Doctors Car Studio</span>
+        </div>
+        <p class="text-xs text-studio-muted mt-2">Restauramos salud, estética y valor a su vehículo con precisión médica.</p>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs text-studio-muted">
+        <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer" class="hover:text-studio-cyan transition flex items-center gap-2">
+          <i class="fa-brands fa-instagram text-base text-studio-cyan"></i>
+          <span>@thedoctorscarstudio</span>
+        </a>
+        <span>&bull;</span>
+        <span>&copy; <span id="year"></span> Todos los derechos reservados</span>
+      </div>
     </div>
-    <p class="mt-4 opacity-60">&copy; <span id="year"></span> Todos los derechos reservados.</p>
   </footer>
 
-  <!-- LÓGICA DE INTEGRACIÓN INSTAGRAM + WHATSAPP -->
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="#diagnostico" aria-label="Agendar por WhatsApp"
+     class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-studio-cyan hover:bg-sky-300 text-black flex items-center justify-center shadow-2xl shadow-studio-cyan/30 transition hover:scale-105">
+    <i class="fa-brands fa-whatsapp text-2xl"></i>
+  </a>
+
+  <!-- SCRIPTS DE INTERACTIVIDAD, INSTAGRAM Y WHATSAPP -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Publicaciones de respaldo (se reemplazan solas al conectar Behold.so)
+    // 1. ANIMACIÓN DE APARICIÓN AL HACER SCROLL
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 2. SLIDER INTERACTIVO ANTES / DESPUÉS
+    const baContainer = document.getElementById('ba-container');
+    const baBeforeWrapper = document.getElementById('ba-before-wrapper');
+    const baBeforeImg = document.getElementById('ba-before-img');
+    const baHandle = document.getElementById('ba-handle');
+    let isDragging = false;
+
+    function syncBeforeImgWidth() {
+      if (baContainer && baBeforeImg) {
+        baBeforeImg.style.width = `${baContainer.offsetWidth}px`;
+      }
+    }
+    window.addEventListener('resize', syncBeforeImgWidth);
+    syncBeforeImgWidth();
+
+    function moveSlider(clientX) {
+      const rect = baContainer.getBoundingClientRect();
+      let position = ((clientX - rect.left) / rect.width) * 100;
+      position = Math.max(5, Math.min(95, position));
+      baBeforeWrapper.style.width = `${position}%`;
+      baHandle.style.left = `${position}%`;
+    }
+
+    baContainer.addEventListener('mousedown', (e) => { isDragging = true; moveSlider(e.clientX); });
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    window.addEventListener('mousemove', (e) => { if (isDragging) moveSlider(e.clientX); });
+
+    baContainer.addEventListener('touchstart', (e) => { isDragging = true; moveSlider(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchend', () => { isDragging = false; });
+    window.addEventListener('touchmove', (e) => { if (isDragging) moveSlider(e.touches[0].clientX); }, { passive: true });
+
+    // 3. PORTAFOLIO DE INSTAGRAM (MERCEDES DE CARRERAS + CLÁSICOS DE RESPALDO + CONEXIÓN BEHOLD.SO)
     const DEMO_POSTS = [
       {
-        mediaUrl: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=80",
-        caption: "Protocolo de corrección de pintura en 3 etapas + recubrimiento cerámico 9H. Acabado espejo quirúrgico.",
+        mediaUrl: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1000&q=85",
+        caption: "Cirugía de pintura y blindaje cerámico en Mercedes-Benz de competición. Acabado óptico y protección en pista y exhibición.",
         permalink: CLIENT_CONFIG.instagramUrl,
         mediaType: "IMAGE"
       },
       {
-        mediaUrl: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
-        caption: "Instalación de PPF frontal completo. Protección invisible contra impactos en carretera sin alterar el brillo.",
+        mediaUrl: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1000&q=85",
+        caption: "Protocolo de corrección multietapa y sellado cerámico en clásico de colección. Acabado espejo de laboratorio.",
         permalink: CLIENT_CONFIG.instagramUrl,
         mediaType: "VIDEO"
       },
       {
-        mediaUrl: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
-        caption: "Descontaminación profunda y restauración de cabina. Devolviendo el valor y aroma de fábrica.",
+        mediaUrl: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1000&q=85",
+        caption: "Descontaminación delicada, pulido de piezas cromadas y nutrición clínica de cabina para clásicos atemporales.",
         permalink: CLIENT_CONFIG.instagramUrl,
         mediaType: "IMAGE"
       }
@@ -338,32 +587,35 @@
             posts = feedItems.slice(0, 6);
           }
         } catch (error) {
-          console.error("Error cargando el feed de Instagram:", error);
+          console.error("Error cargando feed de Instagram:", error);
         }
       }
 
       grid.innerHTML = posts.map(post => {
         const imgSrc = post.thumbnailUrl || post.mediaUrl || post.sizes?.medium?.mediaUrl;
-        const caption = post.caption ? post.caption.slice(0, 115) + (post.caption.length > 115 ? '...' : '') : 'Ver caso clínico en Instagram';
+        const caption = post.caption ? post.caption.slice(0, 120) + (post.caption.length > 120 ? '...' : '') : 'Ver caso clínico en @thedoctorscarstudio';
         const isVideo = post.mediaType === 'VIDEO' || post.isReel;
 
         return `
-          <a href="${post.permalink}" target="_blank" rel="noopener noreferrer" 
-             class="group relative bg-clinical-dark border border-clinical-border rounded-2xl overflow-hidden block hover:border-clinical-cyan/60 transition">
-            <div class="aspect-square overflow-hidden relative">
-              <img src="${imgSrc}" alt="Caso clínico automotriz - The Doctors Car Studio" loading="lazy"
-                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          <a href="${post.permalink}" target="_blank" rel="noopener noreferrer"
+             class="group bg-studio-card border border-studio-border rounded-3xl overflow-hidden block hover:border-studio-cyan/60 transition duration-300 flex flex-col">
+            <div class="aspect-[4/3] overflow-hidden relative bg-studio-bg">
+              <img src="${imgSrc}" 
+                   alt="Caso clínico Mercedes-Benz - The Doctors Car Studio"
+                   onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1000&q=85';"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-studio-card via-transparent to-transparent opacity-60"></div>
               ${isVideo ? `
-                <span class="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-clinical-cyan text-xs px-2.5 py-1 rounded-full border border-clinical-cyan/30">
-                  <i class="fa-solid fa-play mr-1"></i> Reel
+                <span class="absolute top-4 right-4 bg-black/75 backdrop-blur-md text-studio-cyan text-[11px] font-mono px-3 py-1 rounded-full border border-studio-cyan/30">
+                  <i class="fa-solid fa-play mr-1"></i> REEL
                 </span>
               ` : ''}
             </div>
-            <div class="p-5">
-              <p class="text-xs text-slate-300 leading-relaxed">${caption}</p>
-              <div class="mt-4 flex items-center justify-between text-[11px] font-mono text-clinical-cyan">
-                <span>VER EN @THEDOCTORSCARSTUDIO</span>
-                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${caption}</p>
+              <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-studio-cyan">
+                <span>VER EN INSTAGRAM</span>
+                <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition"></i>
               </div>
             </div>
           </a>
@@ -373,19 +625,21 @@
 
     loadInstagramFeed();
 
-    // Envío de ficha a WhatsApp
+    // 4. ENVÍO DE FICHA CLÍNICA A WHATSAPP
     document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('clientName').value.trim();
       const car = document.getElementById('carModel').value.trim();
+      const category = document.getElementById('carCategory').value;
       const service = document.getElementById('serviceType').value;
       const notes = document.getElementById('notes').value.trim();
 
-      let message = `Hola *${CLIENT_CONFIG.businessName}*, solicito un diagnóstico clínico para mi vehículo:%0A%0A`;
-      message += `• *Cliente:* ${name}%0A`;
+      let message = `Hola *${CLIENT_CONFIG.businessName}*, deseo agendar un diagnóstico clínico:%0A%0A`;
+      message += `• *Propietario:* ${name}%0A`;
       message += `• *Vehículo:* ${car}%0A`;
-      message += `• *Protocolo de interés:* ${service}%0A`;
-      if (notes) message += `• *Notas:* ${notes}%0A`;
+      message += `• *Categoría:* ${category}%0A`;
+      message += `• *Protocolo:* ${service}%0A`;
+      if (notes) message += `• *Observaciones:* ${notes}%0A`;
 
       window.open(`https://wa.me/${CLIENT_CONFIG.whatsappNumber}?text=${message}`, '_blank');
     });
