@@ -78,6 +78,8 @@
     const CLIENT_CONFIG = {
       businessName: "The Doctors Car Studio",
       whatsappNumber: "50600000000", // Reemplaza con tu número real
+      whatsappNumber: "+506 8412 0808", // Reemplaza con tu número real
+      email: "docs.car.studio@gmail.com",
       instagramHandle: "thedoctorscarstudio",
       instagramUrl: "https://www.instagram.com/thedoctorscarstudio/",
       facebookUrl: "https://www.facebook.com/thedocscarstudio",
@@ -109,35 +111,44 @@
         <a href="#diagnostico" class="hover:text-white transition">Admisión</a>
       </nav>
 
-      <div class="flex items-center gap-3">
+      <!-- BOTONES DE CONTACTO Y REDES -->
+      <div class="flex items-center gap-2.5">
+        <a href="mailto:docs.car.studio@gmail.com"
+           title="Enviar correo: docs.car.studio@gmail.com"
+           aria-label="Correo electrónico oficial"
+           class="w-10 h-10 rounded-xl bg-studio-card border border-studio-border hover:border-studio-champagne text-slate-300 hover:text-studio-champagne flex items-center justify-center transition">
+          <i class="fa-solid fa-envelope text-base"></i>
+        </a>
+        <a href="https://www.facebook.com/thedocscarstudio" target="_blank" rel="noopener noreferrer"
+           title="Facebook oficial"
+           aria-label="Facebook oficial"
+           class="w-10 h-10 rounded-xl bg-studio-card border border-studio-border hover:border-studio-champagne text-slate-300 hover:text-studio-champagne flex items-center justify-center transition">
+          <i class="fa-brands fa-facebook-f text-base"></i>
+        </a>
         <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer"
+           title="Instagram oficial"
            aria-label="Instagram oficial"
            class="w-10 h-10 rounded-xl bg-studio-card border border-studio-border hover:border-studio-champagne text-slate-300 hover:text-studio-champagne flex items-center justify-center transition">
           <i class="fa-brands fa-instagram text-lg"></i>
         </a>
-        <a href="https://www.facebook.com/thedocscarstudio" target="_blank" rel="noopener noreferrer"
-           aria-label="Facebook oficial"
-           class="w-10 h-10 rounded-xl bg-studio-card border border-studio-border hover:border-studio-champagne text-slate-300 hover:text-studio-champagne flex items-center justify-center transition">
-          <i class="fa-brands fa-facebook-f text-lg"></i>
-        </a>
         <a href="#diagnostico" 
-           class="bg-studio-champagne hover:bg-amber-400 text-black font-display font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-studio-champagne/10">
-          <span>Agendar Diagnóstico</span>
+           class="bg-studio-champagne hover:bg-amber-400 text-black font-display font-bold text-xs uppercase tracking-wider px-4 sm:px-5 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-studio-champagne/10 ml-1">
+          <span class="hidden sm:inline">Agendar Diagnóstico</span>
+          <span class="sm:hidden">Agendar</span>
           <i class="fa-solid fa-arrow-right text-[11px]"></i>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO CINEMATOGRÁFICO (AUTOS CLÁSICOS) -->
+  <!-- HERO CINEMATOGRÁFICO -->
   <section class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden border-b border-white/[0.06]">
     <div class="absolute inset-0 z-0">
-      <!-- Imagen de auto clásico deportivo de época (años 70/80) -->
-      <img src="https://www.supercars.net/blog/wp-content/uploads/2020/11/1960-Mercedes-Benz-300-SL-Roadster-007-1536.jpg" 
+      <img src="https://i.postimg.cc/764hrs3Q/fondo.jpg" 
            alt="Auto clásico deportivo en estudio" 
-           class="w-full h-full object-cover object-center opacity-30 scale-105" />
-      <div class="absolute inset-0 bg-gradient-to-r from-studio-bg via-studio-bg/90 to-studio-bg/50"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-studio-bg via-transparent to-studio-bg/60"></div>
+           class="w-full h-full object-cover object-center opacity-65 scale-105 brightness-110" />
+      <div class="absolute inset-0 bg-gradient-to-r from-studio-bg/95 via-studio-bg/65 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-studio-bg via-transparent to-studio-bg/30"></div>
       <div class="absolute inset-0 blueprint-grid"></div>
     </div>
 
@@ -145,57 +156,56 @@
       <div class="max-w-3xl">
         <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel border border-studio-champagne/30 text-[11px] font-mono uppercase tracking-[0.2em] text-studio-champagne mb-8">
           <span class="w-2 h-2 rounded-full bg-studio-champagne animate-pulse"></span>
-          Especialistas en Joyas Automotrices &bull; 1980 y Anteriores
+          Especialistas en Joyas Automotrices &bull; 1980s y Anteriores
         </div>
 
-        <h1 class="font-display text-4xl sm:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.06] text-white">
+        <h1 class="font-display text-4xl sm:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.06] text-white drop-shadow-md">
           Preservamos la <span class="font-serif italic font-semibold text-studio-champagne text-5xl sm:text-7xl">historia, alma y valor</span> de su clásico.
         </h1>
 
-        <p class="mt-7 text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed font-light">
+        <p class="mt-7 text-slate-200 text-base sm:text-lg max-w-2xl leading-relaxed font-light drop-shadow">
           Especialistas en el cuidado de pinturas monocapa de época, pulido de cromos delicados, tratamiento de maderas y cueros originales. Devolvemos la gloria a vehículos que marcaron una era.
         </p>
 
-        <div class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+        <div class="mt-10 flex flex-wrap items-center gap-4">
           <a href="#diagnostico" 
-             class="px-8 py-4 rounded-xl bg-studio-champagne hover:bg-amber-400 text-black font-display font-bold text-xs uppercase tracking-[0.15em] transition glow-accent flex items-center justify-center gap-3">
+             class="px-7 py-4 rounded-xl bg-studio-champagne hover:bg-amber-400 text-black font-display font-bold text-xs uppercase tracking-[0.15em] transition glow-accent flex items-center justify-center gap-3">
             <i class="fa-brands fa-whatsapp text-lg"></i>
-            Solicitar Evaluación para Clásico
+            Solicitar Evaluación
           </a>
           <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer"
-             class="px-8 py-4 rounded-xl glass-panel hover:bg-white/10 border border-white/15 hover:border-studio-champagne/50 text-white font-display font-semibold text-xs uppercase tracking-[0.15em] transition flex items-center justify-center gap-3">
+             class="px-6 py-4 rounded-xl glass-panel hover:bg-white/10 border border-white/15 hover:border-studio-champagne/50 text-white font-display font-semibold text-xs uppercase tracking-[0.15em] transition flex items-center justify-center gap-2.5">
             <i class="fa-brands fa-instagram text-lg text-studio-champagne"></i>
-            Ver Trabajos en Instagram
+            Instagram
           </a>
           <a href="https://www.facebook.com/thedocscarstudio" target="_blank" rel="noopener noreferrer"
-             class="px-8 py-4 rounded-xl glass-panel hover:bg-white/10 border border-white/15 hover:border-studio-champagne/50 text-white font-display font-semibold text-xs uppercase tracking-[0.15em] transition flex items-center justify-center gap-3">
-            <i class="fa-brands fa-facebook-f text-lg text-studio-champagne"></i>
+             class="px-6 py-4 rounded-xl glass-panel hover:bg-white/10 border border-white/15 hover:border-studio-champagne/50 text-white font-display font-semibold text-xs uppercase tracking-[0.15em] transition flex items-center justify-center gap-2.5">
+            <i class="fa-brands fa-facebook-f text-base text-studio-champagne"></i>
             Facebook
           </a>
         </div>
       </div>
 
-      <!-- Barra de Indicadores Técnicos -->
-      <div class="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="mt-16 pt-8 border-t border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-6">
         <div>
           <span class="text-[11px] font-mono text-studio-champagne uppercase tracking-widest block">01 / Pintura</span>
           <p class="font-display font-semibold text-white text-base mt-1">Cuidado Monocapa</p>
-          <p class="text-xs text-studio-muted mt-0.5">Respeto absoluto por barnices antiguos.</p>
+          <p class="text-xs text-slate-300 mt-0.5">Respeto absoluto por barnices antiguos.</p>
         </div>
         <div>
           <span class="text-[11px] font-mono text-studio-champagne uppercase tracking-widest block">02 / Cromos</span>
           <p class="font-display font-semibold text-white text-base mt-1">Pulido de Metales</p>
-          <p class="text-xs text-studio-muted mt-0.5">Recuperación de brillo en parachoques.</p>
+          <p class="text-xs text-slate-300 mt-0.5">Recuperación de brillo en parachoques.</p>
         </div>
         <div>
           <span class="text-[11px] font-mono text-studio-champagne uppercase tracking-widest block">03 / Interiores</span>
           <p class="font-display font-semibold text-white text-base mt-1">Cueros & Maderas</p>
-          <p class="text-xs text-studio-muted mt-0.5">Hidratación profunda sin alterar texturas.</p>
+          <p class="text-xs text-slate-300 mt-0.5">Hidratación profunda sin alterar texturas.</p>
         </div>
         <div>
           <span class="text-[11px] font-mono text-studio-champagne uppercase tracking-widest block">04 / Patrimonio</span>
           <p class="font-display font-semibold text-white text-base mt-1">Sellado de Exhibición</p>
-          <p class="text-xs text-studio-muted mt-0.5">Protección duradera contra oxidación.</p>
+          <p class="text-xs text-slate-300 mt-0.5">Protección duradera contra oxidación.</p>
         </div>
       </div>
     </div>
@@ -206,8 +216,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       <div class="lg:col-span-6 relative">
         <div class="rounded-3xl overflow-hidden border border-studio-border relative aspect-[4/3]">
-          <!-- Detalle de volante o carrocería clásica vintage -->
-          <img src="https://i.pinimg.com/736x/6b/79/a4/6b79a4b55c4567a0943998c45f72fd02.jpg" 
+          <img src="https://i.postimg.cc/fbTrLXcL/minicooper.jpg" 
                alt="Detalle de auto clásico restaurado" 
                class="w-full h-full object-cover" />
           <div class="absolute inset-0 bg-gradient-to-t from-studio-bg/90 via-transparent to-transparent"></div>
@@ -259,85 +268,159 @@
     </div>
   </section>
 
-  <!-- PROTOCOLOS CLÍNICOS (SERVICIOS) -->
+  <!-- PROTOCOLOS CLÍNICOS CON IMÁGENES EXPLICATIVAS (2 POR CADA ÁREA) -->
   <section id="protocolos" class="py-24 bg-studio-surface border-y border-white/[0.06] reveal">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mb-16">
         <span class="text-xs font-mono uppercase tracking-[0.25em] text-studio-champagne">// Protocolos Especializados</span>
         <h2 class="font-display text-3xl sm:text-5xl font-bold mt-2">Tratamientos para Clásicos</h2>
         <p class="text-studio-muted text-sm sm:text-base mt-3">
-          Procesos rigurosos orientados a rescatar la estética original de vehículos de colección y alta gama retro.
+          Procesos rigurosos orientados a rescatar la estética original de vehículos de colección y alta gama retro. Observe los resultados visuales de cada área.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-studio-card border border-studio-border hover:border-studio-champagne/50 rounded-3xl p-8 transition duration-300 group relative overflow-hidden">
-          <div class="flex items-center justify-between mb-6">
-            <div class="w-12 h-12 rounded-2xl bg-studio-champagne/10 border border-studio-champagne/30 text-studio-champagne flex items-center justify-center group-hover:scale-110 transition">
-              <i class="fa-solid fa-paintbrush text-xl"></i>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- PROTOCOLO 01: PINTURA VINTAGE -->
+        <div class="bg-studio-card border border-studio-border hover:border-studio-champagne/50 rounded-3xl p-6 sm:p-8 transition duration-300 group relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-studio-champagne/10 border border-studio-champagne/30 text-studio-champagne flex items-center justify-center group-hover:scale-110 transition">
+                <i class="fa-solid fa-paintbrush text-xl"></i>
+              </div>
+              <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 01</span>
             </div>
-            <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 01</span>
+            <h3 class="font-display text-2xl font-bold text-white mb-3">Rejuvenecimiento de Pintura Vintage</h3>
+            <p class="text-sm text-studio-muted leading-relaxed mb-6">
+              Tratamiento especial para pinturas envejecidas por el sol. Devolvemos la profundidad tonal a colores sólidos y metalizados clásicos sin arriesgar la capa original.
+            </p>
           </div>
-          <h3 class="font-display text-2xl font-bold text-white mb-3">Rejuvenecimiento de Pintura Vintage</h3>
-          <p class="text-sm text-studio-muted leading-relaxed mb-6">
-            Tratamiento especial para pinturas envejecidas por el sol. Devolvemos la profundidad tonal a colores sólidos y metalizados clásicos sin arriesgar la capa original.
-          </p>
-          <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Eliminación segura de oxidación superficial</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Tratamiento de carrocerías monocapa</li>
-          </ul>
+
+          <div>
+            <!-- Dos imágenes explicativas -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/10">
+                <img src="https://i.postimg.cc/ydz4NW8r/cadillac.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-sm text-[9px] font-mono text-white px-2 py-0.5 rounded">Proceso Optico</span>
+              </div>
+              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/10">
+                <img src="https://i.postimg.cc/XJ0SvXY1/mbwdepo.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-sm text-[9px] font-mono text-white px-2 py-0.5 rounded">Acabado Espejo</span>
+              </div>
+            </div>
+
+            <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Eliminación segura de oxidación superficial</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Tratamiento de carrocerías monocapa</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="bg-studio-card border border-studio-border hover:border-studio-champagne/50 rounded-3xl p-8 transition duration-300 group relative overflow-hidden">
-          <div class="flex items-center justify-between mb-6">
-            <div class="w-12 h-12 rounded-2xl bg-studio-champagne/10 border border-studio-champagne/30 text-studio-champagne flex items-center justify-center group-hover:scale-110 transition">
-              <i class="fa-solid fa-shield-halved text-xl"></i>
+        <!-- PROTOCOLO 02: BLINDAJE CERÁMICO -->
+        <div class="bg-studio-card border border-studio-border hover:border-studio-champagne/50 rounded-3xl p-6 sm:p-8 transition duration-300 group relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-studio-champagne/10 border border-studio-champagne/30 text-studio-champagne flex items-center justify-center group-hover:scale-110 transition">
+                <i class="fa-solid fa-shield-halved text-xl"></i>
+              </div>
+              <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 02</span>
             </div>
-            <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 02</span>
+            <h3 class="font-display text-2xl font-bold text-white mb-3">Sellado Cerámico de Larga Duración</h3>
+            <p class="text-sm text-studio-muted leading-relaxed mb-6">
+              Una capa cristalina invisible que protege la pintura clásica contra la humedad, la corrosión ambiental y los rayos UV, facilitando su limpieza y mantenimiento.
+            </p>
           </div>
-          <h3 class="font-display text-2xl font-bold text-white mb-3">Sellado Cerámico de Larga Duración</h3>
-          <p class="text-sm text-studio-muted leading-relaxed mb-6">
-            Una capa cristalina invisible que protege la pintura clásica contra la humedad, la corrosión ambiental y los rayos UV, facilitando su limpieza en concentraciones.
-          </p>
-          <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Máxima repelencia al agua y polvo</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Brillo húmedo de concurso</li>
-          </ul>
+
+          <div>
+            <!-- Dos imágenes explicativas -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/10">
+                <img src="https://i.postimg.cc/Y2WbpkG9/ferrrari-jpg.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-sm text-[9px] font-mono text-white px-2 py-0.5 rounded">Repelencia UV</span>
+              </div>
+              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/10">
+                <img src="https://i.postimg.cc/kMbfn965/recubrimiento.jpg" alt="Blindaje cerámico 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-sm text-[9px] font-mono text-white px-2 py-0.5 rounded">Brillo Concurso</span>
+              </div>
+            </div>
+
+            <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Máxima repelencia al agua y polvo</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Brillo húmedo de exhibición</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="bg-studio-card border border-studio-border hover:border-studio-champagne/50 rounded-3xl p-8 transition duration-300 group relative overflow-hidden">
-          <div class="flex items-center justify-between mb-6">
-            <div class="w-12 h-12 rounded-2xl bg-studio-champagne/10 border border-studio-champagne/30 text-studio-champagne flex items-center justify-center group-hover:scale-110 transition">
-              <i class="fa-solid fa-ring text-xl"></i>
+        <!-- PROTOCOLO 03: CROMOS Y METALES -->
+        <div class="bg-studio-card border border-studio-border hover:border-studio-champagne/50 rounded-3xl p-6 sm:p-8 transition duration-300 group relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-studio-champagne/10 border border-studio-champagne/30 text-studio-champagne flex items-center justify-center group-hover:scale-110 transition">
+                <i class="fa-solid fa-ring text-xl"></i>
+              </div>
+              <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 03</span>
             </div>
-            <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 03</span>
+            <h3 class="font-display text-2xl font-bold text-white mb-3">Restauración de Cromos & Metales</h3>
+            <p class="text-sm text-studio-muted leading-relaxed mb-6">
+              Limpieza profunda y pulido especializado para eliminar puntos de óxido en parachoques, espejos, marcos de ventanas y parrillas clásicas originales.
+            </p>
           </div>
-          <h3 class="font-display text-2xl font-bold text-white mb-3">Restauración de Cromos & Metales</h3>
-          <p class="text-sm text-studio-muted leading-relaxed mb-6">
-            Limpieza profunda y pulido especializado para eliminar puntos de óxido en parachoques, espejos, marcos de ventanas y parrillas clásicas.
-          </p>
-          <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Pasivado anti-corrosión para metales expuestos</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Recuperación del brillo espejo original</li>
-          </ul>
+
+          <div>
+            <!-- Dos imágenes explicativas -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/10">
+                <img src="https://i.postimg.cc/BZBP5wRp/cubiertas.jpg" alt="Cromos y detalles 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-sm text-[9px] font-mono text-white px-2 py-0.5 rounded">Detalle Cromo</span>
+              </div>
+              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/10">
+                <img src="https://i.postimg.cc/gcHLyB1N/frente-jpj.jpg" alt="Cromos y detalles 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-sm text-[9px] font-mono text-white px-2 py-0.5 rounded">Pulido Espejo</span>
+              </div>
+            </div>
+
+            <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Pasivado anti-corrosión para metales expuestos</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Recuperación del brillo espejo original</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="bg-studio-card border border-studio-border hover:border-studio-champagne/50 rounded-3xl p-8 transition duration-300 group relative overflow-hidden">
-          <div class="flex items-center justify-between mb-6">
-            <div class="w-12 h-12 rounded-2xl bg-studio-champagne/10 border border-studio-champagne/30 text-studio-champagne flex items-center justify-center group-hover:scale-110 transition">
-              <i class="fa-solid fa-couch text-xl"></i>
+        <!-- PROTOCOLO 04: INTERIORES Y CUEROS -->
+        <div class="bg-studio-card border border-studio-border hover:border-studio-champagne/50 rounded-3xl p-6 sm:p-8 transition duration-300 group relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-studio-champagne/10 border border-studio-champagne/30 text-studio-champagne flex items-center justify-center group-hover:scale-110 transition">
+                <i class="fa-solid fa-couch text-xl"></i>
+              </div>
+              <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 04</span>
             </div>
-            <span class="text-xs font-mono text-studio-muted border border-studio-border px-3 py-1 rounded-full">PROTOCOLO 04</span>
+            <h3 class="font-display text-2xl font-bold text-white mb-3">Cuidado de Interiores & Cueros de Época</h3>
+            <p class="text-sm text-studio-muted leading-relaxed mb-6">
+              Nutrición y acondicionamiento con aceites naturales para cueros antiguos agrietados, paneles de puerta y tableros de madera clásica sin alterar su esencia.
+            </p>
           </div>
-          <h3 class="font-display text-2xl font-bold text-white mb-3">Cuidado de Interiores & Cueros de Época</h3>
-          <p class="text-sm text-studio-muted leading-relaxed mb-6">
-            Nutrición y acondicionamiento con aceites naturales para cueros antiguos agrietados, paneles de puerta y tableros de madera clásica.
-          </p>
-          <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Hidratación profunda sin brillo artificial</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Limpieza delicada de cielo raso y alfombras</li>
-          </ul>
+
+          <div>
+            <!-- Dos imágenes explicativas -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/10">
+                <img src="https://i.postimg.cc/bY9S0F4T/intec1v.jpg" alt="Interior clásico 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-sm text-[9px] font-mono text-white px-2 py-0.5 rounded">Cuero Original</span>
+              </div>
+              <div class="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/10">
+                <img src="https://i.postimg.cc/v8tx7SCX/intec2v.jpg" alt="Interior clásico 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute bottom-2 left-2 bg-black/70 backdrop-blur-sm text-[9px] font-mono text-white px-2 py-0.5 rounded">Madera & Cabina</span>
+              </div>
+            </div>
+
+            <ul class="space-y-2 text-xs text-slate-300 border-t border-white/5 pt-5">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Hidratación profunda sin brillo artificial</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-studio-champagne"></i> Limpieza delicada de componentes retro</li>
+            </ul>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -353,7 +436,6 @@
     </div>
 
     <div id="ba-container" class="relative w-full aspect-[16/9] max-h-[540px] rounded-3xl overflow-hidden border border-studio-border select-none glow-accent">
-      <!-- Imagen de clásico restaurado -->
       <img src="https://i.postimg.cc/zDpyhdBq/restaurado.jpg" 
            alt="Después de restauración clásica" 
            class="absolute inset-0 w-full h-full object-cover" />
@@ -379,7 +461,7 @@
     </div>
   </section>
 
-  <!-- PORTAFOLIO INSTAGRAM -->
+  <!-- PORTAFOLIO INSTAGRAM / FACEBOOK -->
   <section id="casos" class="py-24 bg-studio-surface border-y border-white/[0.06] reveal">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
@@ -392,14 +474,14 @@
 
         <div class="flex flex-wrap items-center gap-3 self-start md:self-auto">
           <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-studio-card border border-studio-border hover:border-studio-champagne text-xs font-display font-semibold uppercase tracking-wider text-white transition group">
+             class="inline-flex items-center gap-3 px-5 py-3.5 rounded-xl bg-studio-card border border-studio-border hover:border-studio-champagne text-xs font-display font-semibold uppercase tracking-wider text-white transition group">
             <i class="fa-brands fa-instagram text-studio-champagne text-base"></i>
-            <span>@thedoctorscarstudio</span>
+            <span>Instagram</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-[11px] text-studio-muted group-hover:text-studio-champagne transition"></i>
           </a>
           <a href="https://www.facebook.com/thedocscarstudio" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-studio-card border border-studio-border hover:border-studio-champagne text-xs font-display font-semibold uppercase tracking-wider text-white transition group">
-            <i class="fa-brands fa-facebook-f text-studio-champagne text-base"></i>
+             class="inline-flex items-center gap-3 px-5 py-3.5 rounded-xl bg-studio-card border border-studio-border hover:border-studio-champagne text-xs font-display font-semibold uppercase tracking-wider text-white transition group">
+            <i class="fa-brands fa-facebook-f text-studio-champagne text-sm"></i>
             <span>Facebook</span>
             <i class="fa-solid fa-arrow-up-right-from-square text-[11px] text-studio-muted group-hover:text-studio-champagne transition"></i>
           </a>
@@ -489,18 +571,23 @@
         <p class="text-xs text-studio-muted mt-2">Preservando el patrimonio y la historia sobre ruedas.</p>
       </div>
 
-      <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-studio-muted">
+      <div class="flex flex-wrap items-center justify-center gap-5 text-xs text-studio-muted">
+        <a href="mailto:docs.car.studio@gmail.com" class="hover:text-studio-champagne transition flex items-center gap-2">
+          <i class="fa-solid fa-envelope text-sm text-studio-champagne"></i>
+          <span>docs.car.studio@gmail.com</span>
+        </a>
+        <span>&bull;</span>
+        <a href="https://www.facebook.com/thedocscarstudio" target="_blank" rel="noopener noreferrer" class="hover:text-studio-champagne transition flex items-center gap-2">
+          <i class="fa-brands fa-facebook-f text-sm text-studio-champagne"></i>
+          <span>Facebook</span>
+        </a>
+        <span>&bull;</span>
         <a href="https://www.instagram.com/thedoctorscarstudio/" target="_blank" rel="noopener noreferrer" class="hover:text-studio-champagne transition flex items-center gap-2">
           <i class="fa-brands fa-instagram text-base text-studio-champagne"></i>
           <span>@thedoctorscarstudio</span>
         </a>
         <span>&bull;</span>
-        <a href="https://www.facebook.com/thedocscarstudio" target="_blank" rel="noopener noreferrer" class="hover:text-studio-champagne transition flex items-center gap-2">
-          <i class="fa-brands fa-facebook-f text-base text-studio-champagne"></i>
-          <span>thedocscarstudio</span>
-        </a>
-        <span>&bull;</span>
-        <span>&copy; <span id="year"></span> Todos los derechos reservados</span>
+        <span>&copy; <span id="year"></span></span>
       </div>
     </div>
   </footer>
@@ -531,31 +618,51 @@
     const baHandle = document.getElementById('ba-handle');
     let isDragging = false;
 
-   // Portafolio de demostración con autos clásicos
+    function syncBeforeImgWidth() {
+      if (baContainer && baBeforeImg) {
+        baBeforeImg.style.width = `${baContainer.offsetWidth}px`;
+      }
+    }
+    window.addEventListener('resize', syncBeforeImgWidth);
+    syncBeforeImgWidth();
+
+    function moveSlider(clientX) {
+      const rect = baContainer.getBoundingClientRect();
+      let position = ((clientX - rect.left) / rect.width) * 100;
+      position = Math.max(5, Math.min(95, position));
+      baBeforeWrapper.style.width = `${position}%`;
+      baHandle.style.left = `${position}%`;
+    }
+
+    baContainer.addEventListener('mousedown', (e) => { isDragging = true; moveSlider(e.clientX); });
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    window.addEventListener('mousemove', (e) => { if (isDragging) moveSlider(e.clientX); });
+    baContainer.addEventListener('touchstart', (e) => { isDragging = true; moveSlider(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchend', () => { isDragging = false; });
+    window.addEventListener('touchmove', (e) => { if (isDragging) moveSlider(e.touches[0].clientX); }, { passive: true });
+
+    // Portafolio de demostración con autos clásicos
     const DEMO_POSTS = [
       {
         mediaUrl: "https://i.postimg.cc/PfKCD6xj/mbclasic.jpg",
-        mediaUrl: "https://imgs.search.brave.com/Bch9S1EGYW1G30Otw3nBhSf7hcOnlph8M18T2iFQQ-E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbGF0/Zm9ybS5jc3RhdGlj/LWltYWdlcy5jb20v/aW4vdjIvc3RvY2tf/cGhvdG9zL2QzMWYz/MzcwLTA2YjQtNGEw/OS1hMTU2LWM0ODBl/M2U0MTE4NC80ZjQ2/ZTk1My04NzQxLTRh/YjktYTM5MS01MzM3/ODhlMzUwZTQucG5n",
         caption: "Restauración de pintura vintage y protección cerámica en deportivo clásico de los 70s.",
         permalink: CLIENT_CONFIG.instagramUrl,
         mediaType: "IMAGE"
       },
       {
-        mediaUrl: "https://imgs.search.brave.com/Bch9S1EGYW1G30Otw3nBhSf7hcOnlph8M18T2iFQQ-E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbGF0/Zm9ybS5jc3RhdGlj/LWltYWdlcy5jb20v/aW4vdjIvc3RvY2tf/cGhvdG9zL2QzMWYz/MzcwLTA2YjQtNGEw/OS1hMTU2LWM0ODBl/M2U0MTE4NC80ZjQ2/ZTk1My04NzQxLTRh/YjktYTM5MS01MzM3/ODhlMzUwZTQucG5n",
-        mediaUrl: "https://i.postimg.cc/PfKCD6xj/mbclasic.jpg",
+        mediaUrl: "https://i.postimg.cc/tCJJhm9h/tyo80s.jpg",
         caption: "Detalle de volante y cabina restaurada con hidratación de cueros naturales de época.",
         permalink: CLIENT_CONFIG.instagramUrl,
         mediaType: "VIDEO"
       },
       {
-        mediaUrl: "https://imgs.search.brave.com/aK7_vtSbk-KHdoeRHabg54XXAOK2zOaKnuPo-xlZHEI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Y3VyYnNpZGVjbGFz/c2ljLmNvbS9jZG4t/Y2dpL2ltYWdlL3dp/ZHRoPTYwMCxoZWln/aHQ9NDUwLGZpdD1j/cm9wLHF1YWxpdHk9/ODAsZm9ybWF0PWF1/dG8sb25lcnJvcj1y/ZWRpcmVjdCxtZXRh/ZGF0YT1ub25lL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIxLzAx/L0NoZXZyb2xldC1N/b256YS0xOTc4LW1v/bnphLWNvdXBlLXJl/YWwuanBn",
+        mediaUrl: "https://i.postimg.cc/5yxYd4dy/mnc90s.jpg",
         caption: "Pulido de cromos y acabado espejo en clásico americano de colección.",
         permalink: CLIENT_CONFIG.instagramUrl,
         mediaType: "IMAGE"
       }
     ];
 
-    
     async function loadInstagramFeed() {
       const grid = document.getElementById('instagram-feed-grid');
       let posts = DEMO_POSTS;
@@ -569,13 +676,13 @@
             posts = feedItems.slice(0, 6);
           }
         } catch (error) {
-          console.error("Error cargando feed de Instagram:", error);
+          console.error("Error cargando feed:", error);
         }
       }
 
       grid.innerHTML = posts.map(post => {
         const imgSrc = post.thumbnailUrl || post.mediaUrl || post.sizes?.medium?.mediaUrl;
-        const caption = post.caption ? post.caption.slice(0, 120) + (post.caption.length > 120 ? '...' : '') : 'Ver caso en @thedoctorscarstudio';
+        const caption = post.caption ? post.caption.slice(0, 120) + (post.caption.length > 120 ? '...' : '') : 'Ver caso clínico en @thedoctorscarstudio';
         const isVideo = post.mediaType === 'VIDEO' || post.isReel;
 
         return `
@@ -583,7 +690,8 @@
              class="group bg-studio-card border border-studio-border rounded-3xl overflow-hidden block hover:border-studio-champagne/60 transition duration-300 flex flex-col">
             <div class="aspect-[4/3] overflow-hidden relative bg-studio-bg">
               <img src="${imgSrc}" 
-                   alt="Clásico restaurado - The Doctors Car Studio"
+                   alt="Caso clínico de auto clásico"
+                   onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=85';"
                    class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700" />
               <div class="absolute inset-0 bg-gradient-to-t from-studio-card via-transparent to-transparent opacity-60"></div>
               ${isVideo ? `
@@ -614,7 +722,7 @@
       const service = document.getElementById('serviceType').value;
       const notes = document.getElementById('notes').value.trim();
 
-      let message = `Hola *${CLIENT_CONFIG.businessName}*, deseo agendar una cita para mi clásico:%0A%0A`;
+      let message = `Hola *${CLIENT_CONFIG.businessName}*, deseo agendar un diagnóstico para mi auto clásico:%0A%0A`;
       message += `• *Propietario:* ${name}%0A`;
       message += `• *Vehículo:* ${car}%0A`;
       message += `• *Categoría:* ${category}%0A`;
